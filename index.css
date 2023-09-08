@@ -60,7 +60,6 @@ h4 {
 
 #total-container {
     margin: 30px 35px 30px 45px;
-    display: none;
 }
 
 
@@ -127,24 +126,93 @@ h4 {
     margin: 15px 0;
 }
 
-#order-button {
+.green-button {
     width: 100%;
     background-color: #16DB99;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block;
     font-size: 8pt;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px auto;
     border: none;
     border-radius: 3px;
     color: white;
     padding: 12px;
 }
 
-
-#order-button:hover {
+.green-button:hover {
     background-color: #18e6a1;
 }
 
-#order-button:active {
+.green-button:active {
     background-color: #14c188;
 }
+
+
+.verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bold-head2 {
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.extra-topmargin {
+    margin-top: 20px;
+}
+
+#overlay {
+    width: 500px;
+    height: 100%;
+    background-color: rgba(138, 138, 138, 0.135);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#payment-modal {
+    width: 320px;
+    margin: auto;
+    position: fixed;
+    top: 30%;
+    left: 100px;
+    background-color: white;
+    box-shadow: 0px 0px 300px rgb(59, 59, 59);
+    /* height: 300px;
+    overflow-y: auto; */
+}
+
+
+.form-container {
+    width: 90%;
+    margin: auto;
+    padding: 10px 15px;
+}
+
+.modal-input {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+
+#submitted-message {
+    background-color: #ECFDF5;
+    width: 80%;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 16pt;
+    color: #065F46
+}
+
+
+
+

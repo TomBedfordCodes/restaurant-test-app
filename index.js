@@ -5,6 +5,12 @@ const menuContainerEl = document.getElementById("menu-container")
 const totalContainerEl = document.getElementById("total-container")
 const orderListEl = document.getElementById("order-list")
 const totalPriceEl = document.getElementById("total-price")
+const orderButton = document.getElementById("order-button")
+const overlayModal = document.getElementById("overlay")
+const paymentModal = document.getElementById("payment-modal")
+const paymentForm = document.getElementById("payment-form")
+const submittedMessage = document.getElementById("submitted-message")
+
 
 let currTotalPrice = 0
 
@@ -39,8 +45,16 @@ function getMenuItemsHTML(){
 
 
 document.addEventListener("click", function(e){
-    if (e.target.dataset.itemid) {
-        totalContainerEl.style.display = "block"
+    if (!paymentModal.hidden && !paymentModal.contains(e.target)){
+        overlayModal.hidden = true
+        paymentModal.hidden = true
+    }
+    else if (e.target === orderButton){
+        overlayModal.hidden = false
+        paymentModal.hidden = false
+    }
+    else if (e.target.dataset.itemid) {
+        totalContainerEl.hidden = false
         const menuObj = getMenuItemById(e.target.dataset.itemid)
         currTotalPrice += menuObj.price
         updateTotalPrice()
@@ -56,7 +70,7 @@ document.addEventListener("click", function(e){
         updateTotalPrice()
         e.target.parentNode.parentNode.removeChild(e.target.parentNode)
         if (orderListEl.children.length < 1){
-            totalContainerEl.style.display = "none"
+            totalContainerEl.hidden = true
         }
     }
 })
@@ -71,6 +85,21 @@ function updateTotalPrice(){
     totalPriceEl.textContent = `£${currTotalPrice}`
 }
 
+
+paymentForm.addEventListener("submit", function(e){
+    e.preventDefault()
+    const paymentFormData = new FormData(paymentForm)
+    submittedMessage.innerText = `Thanks ${paymentFormData.get("customerName")}, your order is on its way!`
+    submittedMessage.hidden = false
+    overlayModal.hidden = true
+    paymentModal.hidden = true
+    totalContainerEl.hidden = true
+    orderListEl.innerHTML = ""
+    currTotalPrice = 0
+    setTimeout(function(){
+        submittedMessage.hidden = true
+    }, 5000)
+})
 
 
 renderMenuItems()

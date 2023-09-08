@@ -12,8 +12,8 @@
         <header>
             <div class="header-container">
                 <div class="headings-container">
-                    <h1>Jimmy's Diner</h1>
-                    <h2>The best burgers and pizzas in town.</h2>
+                    <h1>Tommo's Diner</h1>
+                    <h2>The best fast food and drinks in town.</h2>
                 </div>
             </div>
         </header>
@@ -22,7 +22,7 @@
                 <!-- Add in menu items here with JS -->
             </div>
         </section>
-        <div id="total-container">
+        <div id="total-container" hidden>
             <h1 class="centered">Your order</h1>
             <div id="order-list">
                 <!-- Add in ordered items here with JS -->
@@ -31,9 +31,40 @@
                 <h2>Total price:</h2>
                 <h2 id="total-price">£0</h4>
             </div>
-            <button id="order-button" class="pointer-cursor">
+            <button id="order-button" class="pointer-cursor verdana green-button">
                 Complete order
             </button>
+        </div>
+        <div id="overlay" hidden>
+            <div id="payment-modal" hidden>
+                <h3 class="verdana bold-head2">Enter card details</h3>
+                <div class="form-container">
+                    <form id="payment-form">
+                        <input 
+                            type="text" 
+                            placeholder="Enter your name" 
+                            name="customerName" 
+                            class="modal-input verdana"
+                            required>
+                        <input 
+                            type="text" 
+                            placeholder="Enter card number" 
+                            name="customerCard" 
+                            class="modal-input verdana"
+                            required>
+                        <input 
+                            type="text" 
+                            placeholder="Enter CVV" 
+                            name="customerCvv" 
+                            class="modal-input verdana"
+                            required>
+                        <button class="green-button verdana pointer-cursor extra-topmargin">Pay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="submitted-message" hidden>
+            Thanks ___, your order is on its way!
         </div>
 
 	<script src="./index.js" type="module"></script>
